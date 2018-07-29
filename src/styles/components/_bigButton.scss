@@ -1,0 +1,26 @@
+.bigButton{
+    display:flex;
+    flex-direction: row;
+    background: none;
+    border: none;
+    padding:$small;
+    border-bottom: 1rem solid darken($light-blue,10%)
+}
+.bigButton__action {
+    display:flex;
+    color:$white;
+    flex-direction: column;
+    .bigButton__action__rate{
+        color:$light-white;
+        font-size: $medium;
+    }
+    .bigButton__action__type{
+        font-weight: bold;
+    }
+}
+.bigButton__price {
+    font-size:$xlarge;
+    font-weight: bold;
+    color:$light-blue;
+    padding: 0 1rem;
+}

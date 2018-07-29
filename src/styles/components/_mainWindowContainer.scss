@@ -1,0 +1,16 @@
+.mainWindowContainer{
+    max-height: 100%;
+}
+.mainWindowContainer__grid{
+    max-height: 60%;
+    overflow:scroll
+}
+.mainWindowContainer__table{
+    max-height: 40%;
+}
+// @media(max-width:60rem){
+//     .mainWindowContainer__grid{
+//         max-height: 60%;
+//         overflow:scroll
+//     }
+// }

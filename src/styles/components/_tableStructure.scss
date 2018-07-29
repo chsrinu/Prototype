@@ -1,0 +1,23 @@
+.wrap {
+    width: 100%;
+}
+
+.wrap table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr td {
+    padding: 5px;
+    border: 1px solid darken($color: $black, $amount: 10%);
+    width: 100px;
+    word-wrap: break-word;
+}
+table.head tr td {
+    background: $white;
+}
+.innerTable {
+    height: 100px;
+    overflow-y: auto;
+    
+}
