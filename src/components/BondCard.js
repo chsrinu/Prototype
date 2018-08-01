@@ -3,9 +3,8 @@ import BigButton from './BigButton';
 import profitIndication from '../../images/arrow-up.png';
 import lossIndication from '../../images/arrow-down.png';
 
-//var tempImage = require('');
 
-const BondCard = ({bondInfo, onClick}) => {
+const BondCard = ({bondInfo,onClick}) => {
  const {CCYCCY, LEFTSELL,RATE, PNL, RIGHTBUY, DEALTCCY, NOTIONAL, VALUE_DATE} = bondInfo
  var profit = RIGHTBUY-LEFTSELL;
  return(
