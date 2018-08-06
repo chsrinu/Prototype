@@ -7,6 +7,7 @@ var previousIndex=0, currentDargger, currentDropTarget;
 
 const onClick = (index) => {
     console.log(index);
+    createBlankTearout();
     document.getElementsByTagName('tr')[previousIndex].classList.remove('highLightBg');
     previousIndex=index;
     var htmlElement = document.getElementsByTagName('tr')[previousIndex];
@@ -15,7 +16,12 @@ const onClick = (index) => {
     console.log('some card is clicked',index);
 }
 
+
 class BondGrid extends Component {
+    constructor(){
+        super();
+        this.state={data:data}
+    }
     componentDidMount(){
         window.addEventListener('drop',this.onDropHandler);
         window.addEventListener('dragEnter',this.onDragEnterHandler);
@@ -23,12 +29,20 @@ class BondGrid extends Component {
         window.addEventListener('dragover',this.onDragOverHandler);
         try{
             fin.desktop.main(() => {
-                var tearOut = createBlankTearout('title123',500);
-                console.log('create Window', tearOut);
+                //var tearOut = createBlankTearout('title123',500);
+                //fin.desktop.Window.getCurrent();
+               // console.log('create Window', tearOut);
             })
         }catch(err){
             console.log('failed to create window');
         }
+    }
+    onBondCancel(index){
+        console.log('bond@',index,'needs to be removed');
+        var temp = this.state.data.filter((e,i) => {
+            return i!=index;
+        })
+        this.setState({data:temp});
     }
     onDragEnterHandler(e){
         e.preventDefault()
@@ -59,7 +73,7 @@ class BondGrid extends Component {
    render(){
     return (
         <div className='bondGrid'>
-            {data.map((element,index) =>
+            {this.state.data.map((element,index) =>
                 <div draggable='true' 
                     onDragStart={(event)=>this.onDragStartEventHandler(event)}
                     onDragEnd={(event)=>this.onDragEndEventHandler(event)}
@@ -67,6 +81,7 @@ class BondGrid extends Component {
                     <BondCard class='dragger' 
                         onClick={() => onClick(index+1)}
                         bondInfo={element}
+                        bondCancel={() => this.onBondCancel(index)}
                     />
                 </div>)}
         </div>

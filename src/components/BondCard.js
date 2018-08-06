@@ -4,12 +4,15 @@ import profitIndication from '../../images/arrow-up.png';
 import lossIndication from '../../images/arrow-down.png';
 
 
-const BondCard = ({bondInfo,onClick}) => {
+const BondCard = ({bondInfo,onClick, bondCancel}) => {
  const {CCYCCY, LEFTSELL,RATE, PNL, RIGHTBUY, DEALTCCY, NOTIONAL, VALUE_DATE} = bondInfo
  var profit = RIGHTBUY-LEFTSELL;
  return(
         <div className='cardContainer' onClick={onClick}>
-            <h1 className='cardContainer__currencyHeader'>{CCYCCY}</h1>
+            <div className='cardContainer__currencyHeader'>
+                <h1 className='cardContainer__currencyHeaderTextStyle'>{CCYCCY}</h1>
+                <img className='imageProperties' onClick={bondCancel} src={profitIndication}/>
+            </div>
             <div className='cardContainer__userActions'>
                 <BigButton name={'SELL'} rate={RATE} sellingPrice = {LEFTSELL}/>
                 <div className='cardContainer__PNL'>

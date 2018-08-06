@@ -9,11 +9,6 @@
     },
     "runtime": {
         "arguments": "",
-        "version": "beta"
-    },
-    "shortcut": {
-        "company": "OpenFin",
-        "description": "Openfin POC",
-        "name": "Openfin POC"
+        "version": "stable"
     }
 }

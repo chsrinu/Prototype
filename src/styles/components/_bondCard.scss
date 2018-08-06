@@ -8,10 +8,15 @@
     margin:0.5rem;
     font-size:$small;
 }
-.cardContainer__currencyHeader{
+.cardContainer__currencyHeaderTextStyle{
     font-family: 'Arial Narrow';
     font-size: $large;
     color:$white;
+    
+}
+.cardContainer__currencyHeader{
+    display: flex;
+    justify-content: space-between;
 }
 .cardContainer__userActions {
     display: flex;
